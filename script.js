@@ -58,9 +58,6 @@ function playGame(){
     function playRound(humanChoice,computerChoice){
         humanChoice=humanChoice.toLowerCase();
     
-        console.log(humanChoice);
-        console.log(computerChoice);
-    
         if (humanChoice===computerChoice){
             console.log("Draw! You both chose "+humanChoice+".");
             return;
@@ -97,8 +94,6 @@ function playGame(){
 
     for (let i=0; i<5; i++){
         playRound(getHumanChoice(),getComputerChoice());
-        console.log(humanScore);
-        console.log(computerScore);
     }
 
     if (humanScore===computerScore){
