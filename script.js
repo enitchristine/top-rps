@@ -18,40 +18,45 @@ function getHumanChoice(){
 
 
 function playGame(){
+
     function playRound(humanChoice,computerChoice){
         humanChoice=humanChoice.toLowerCase();
-    
-        console.log(humanChoice);
-        console.log(computerChoice);
-    
+        p1.textContent="Your choice: "+humanChoice+". Computer choice: "+computerChoice+".";
+
+        let text;
+
         if (humanChoice===computerChoice){
-            console.log("Draw! You both chose "+humanChoice+".");
-            return;
+            text="Draw! You both chose "+humanChoice+".";
+        
         }else if(humanChoice==="paper"){ // player chooses paper
             if(computerChoice==="rock"){
-                console.log("You win! Paper beats rock!");
+                text="You win! Paper beats rock!";
                 humanScore+=1;
             } else if (computerChoice==="scissors"){
-                console.log("You lose :(. Scissors beat paper.")
+                text="You lose :(. Scissors beat paper.";
                 computerScore+=1;
             }
         }else if(humanChoice==="rock"){ // player chooses rock
             if(computerChoice==="scissors"){
-                console.log("You win! Rock beats scissors!");
+                text="You win! Rock beats scissors!";
                 humanScore+=1;
             } else if (computerChoice==="paper"){
-                console.log("You lose :(. Paper beats rock.")
+                text="You lose :(. Paper beats rock.";
                 computerScore+=1;
             }
         }else if(humanChoice==="scissors"){ // player chooses scissors
                 if(computerChoice==="paper"){
-                    console.log("You win! Scissors beats paper!");
+                    text="You win! Scissors beats paper!";
                     humanScore+=1;
                 } else if (computerChoice==="rock"){
-                    console.log("You lose :(. Rock beats scissors.")
+                    text="You lose :(. Rock beats scissors.";
                     computerScore+=1;
                 }
         }
+
+        p2.textContent=text;
+
+        
     }
 
     let humanScore=0;
@@ -61,7 +66,18 @@ function playGame(){
     const paperButton=document.getElementById("paper");
     const scissorsButton=document.getElementById("scissors");
 
-    rockButton.addEventListener("click",()=>{playRound("rock",getComputerChoice())});
+    const display = document.querySelector("div");
+
+    const choiceP=document.createElement("p");
+    display.appendChild(choiceP);
+
+    const resultP=document.createElement("p");
+    display.appendChild(resultP);
+
+
+    rockButton.addEventListener("click",()=>{
+        playRound("rock",getComputerChoice())
+    });
     paperButton.addEventListener("click",()=>{playRound("paper",getComputerChoice())});
     scissorsButton.addEventListener("click",()=>{playRound("scissors",getComputerChoice())});
 
