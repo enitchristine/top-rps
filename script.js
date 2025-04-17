@@ -21,7 +21,7 @@ function playGame(){
 
     function playRound(humanChoice,computerChoice){
         humanChoice=humanChoice.toLowerCase();
-        p1.textContent="Your choice: "+humanChoice+". Computer choice: "+computerChoice+".";
+        choiceP.textContent="Your choice: "+humanChoice+". Computer choice: "+computerChoice+".";
 
         let text;
 
@@ -54,8 +54,15 @@ function playGame(){
                 }
         }
 
-        p2.textContent=text;
+        resultP.textContent=text;
 
+        scoreP.textContent="Human: "+humanScore+". Computer: "+computerScore+".";
+
+        if (humanScore==5){
+            finalP.textContent="You win! You beat the computer!";
+        }else if (computerScore==5){
+            finalP.textContent="You lost... to a computer?!";
+        }
         
     }
 
@@ -74,6 +81,11 @@ function playGame(){
     const resultP=document.createElement("p");
     display.appendChild(resultP);
 
+    const scoreP=document.createElement("p");
+    display.appendChild(scoreP);
+
+    const finalP=document.createElement("p");
+    display.appendChild(finalP);
 
     rockButton.addEventListener("click",()=>{
         playRound("rock",getComputerChoice())
@@ -81,14 +93,11 @@ function playGame(){
     paperButton.addEventListener("click",()=>{playRound("paper",getComputerChoice())});
     scissorsButton.addEventListener("click",()=>{playRound("scissors",getComputerChoice())});
 
-    // if (humanScore===computerScore){
-    //     console.log("Draw! Nobody wins :/");
-    // }
-    // else if (humanScore>computerScore){
-    //     console.log("You win! You beat the computer!");
-    // }else{
-    //     console.log("You lost... to a computer?!")
-    // }
+    if (humanScore==5){
+        console.log("You win! You beat the computer!");
+    }else if (computerScore==5){
+        console.log("You lost... to a computer?!")
+    }
 
     
 }
