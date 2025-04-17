@@ -71,8 +71,7 @@ function playGame(){
         }else if (computerScore==5){
             finalP.textContent="You lost... to a computer?!";
         }
-
-        
+ 
         
     }
 
@@ -103,13 +102,7 @@ function playGame(){
     paperButton.addEventListener("click",()=>{playRound("paper",getComputerChoice())});
     scissorsButton.addEventListener("click",()=>{playRound("scissors",getComputerChoice())});
 
-    if (humanScore==5){
-        console.log("You win! You beat the computer!");
-    }else if (computerScore==5){
-        console.log("You lost... to a computer?!")
-    }
-
-    
+  
 }
 
 playGame();
