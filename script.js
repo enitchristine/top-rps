@@ -20,6 +20,14 @@ function getHumanChoice(){
 function playGame(){
 
     function playRound(humanChoice,computerChoice){
+
+        if (humanScore==5 || computerScore==5 ){
+            const gameOver=document.createElement("p");
+            display.appendChild(gameOver);
+            gameOver.textContent="Game over. Reload page to play again.";
+            return;
+        }
+
         humanChoice=humanChoice.toLowerCase();
         choiceP.textContent="Your choice: "+humanChoice+". Computer choice: "+computerChoice+".";
 
@@ -63,6 +71,8 @@ function playGame(){
         }else if (computerScore==5){
             finalP.textContent="You lost... to a computer?!";
         }
+
+        
         
     }
 
